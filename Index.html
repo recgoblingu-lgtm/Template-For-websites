@@ -13,16 +13,10 @@
     font-family:Arial,Helvetica,sans-serif;
 }
 
-html{
-    scroll-behavior:smooth;
-}
-
 body{
     background:#0d1117;
     color:white;
 }
-
-/* Navigation */
 
 header{
     position:sticky;
@@ -56,16 +50,12 @@ nav a:hover{
     color:#58a6ff;
 }
 
-/* Search Bar */
-
 .search-box input{
     padding:10px;
     border:none;
     border-radius:8px;
     width:180px;
 }
-
-/* Hero */
 
 .hero{
     padding:100px 20px;
@@ -92,8 +82,6 @@ nav a:hover{
     padding:14px 30px;
     border-radius:8px;
 }
-
-/* Sections */
 
 section{
     padding:80px 8%;
@@ -123,7 +111,6 @@ footer{
     background:#161b22;
 }
 </style>
-
 </head>
 
 <body>
@@ -135,95 +122,74 @@ LOGO
 </div>
 
 <nav>
-<a href="#home">Home</a>
-<a href="#features">Features</a>
-<a href="#discord">Discord</a>
-<a href="#contact">Contact</a>
+<a href="index.html">Home</a>
+<a href="features.html">Features</a>
+<a href="downloads.html">Downloads</a>
+<a href="news.html">News</a>
+<a href="discord.html">Discord</a>
+<a href="contact.html">Contact</a>
 </nav>
 
 <div class="search-box">
 <input
 type="text"
-id="search"
 placeholder="Search..."
-onkeyup="searchPage()">
+onclick="searchSite()">
 </div>
 
 </header>
 
-<!-- HOME -->
-
-<section class="hero" id="home">
+<section class="hero">
 
 <h1>Website Name</h1>
 
 <p>
-This is a simple website template. Replace this text with anything you want.
+Welcome to your website. Replace this text with your own description.
 </p>
 
-<a href="#features" class="button">
-Learn More
+<a href="features.html" class="button">
+Explore Features
 </a>
 
 </section>
 
-<!-- FEATURES -->
+<section>
 
-<section id="features">
-
-<h2>Features</h2>
+<h2>Featured</h2>
 
 <div class="cards">
 
 <div class="card">
-<h3>Feature One</h3>
-<p>Edit this text.</p>
+<h3>Features</h3>
+<p>Discover everything your project has to offer.</p>
+<a class="button" href="features.html">Open</a>
 </div>
 
 <div class="card">
-<h3>Feature Two</h3>
-<p>Edit this text.</p>
+<h3>Downloads</h3>
+<p>Download the latest version here.</p>
+<a class="button" href="downloads.html">Open</a>
 </div>
 
 <div class="card">
-<h3>Feature Three</h3>
-<p>Edit this text.</p>
+<h3>News</h3>
+<p>Read the latest announcements.</p>
+<a class="button" href="news.html">Open</a>
+</div>
+
+<div class="card">
+<h3>Discord</h3>
+<p>Join the community.</p>
+<a class="button" href="discord.html">Open</a>
+</div>
+
+<div class="card">
+<h3>Contact</h3>
+<p>Need help? Contact us.</p>
+<a class="button" href="contact.html">Open</a>
 </div>
 
 </div>
-
-</section>
-
-<!-- DISCORD -->
-
-<section id="discord">
-
-<h2>Discord</h2>
-
-<p>
-Replace the button below with your Discord invite.
-</p>
-
-<br>
-
-<a
-class="button"
-href="https://discord.gg/YOURINVITE"
-target="_blank">
-Join Discord
-</a>
-
-</section>
-
-<!-- CONTACT -->
-
-<section id="contact">
-
-<h2>Contact</h2>
-
-<p>Email: example@email.com</p>
-
-<p>Discord: YourName#0000</p>
 
 </section>
 
@@ -234,26 +200,42 @@ Join Discord
 </footer>
 
 <script>
-function searchPage(){
+function searchSite() {
+    const page = prompt(
+        "Search a page:\n\nHome\nFeatures\nDownloads\nNews\nDiscord\nContact"
+    );
 
-let input=document.getElementById("search").value.toLowerCase();
+    if(!page) return;
 
-let sections=document.querySelectorAll("section");
+    switch(page.toLowerCase()){
 
-sections.forEach(section=>{
+        case "home":
+            location.href="index.html";
+            break;
 
-if(section.innerText.toLowerCase().includes(input)){
+        case "features":
+            location.href="features.html";
+            break;
 
-section.style.display="block";
+        case "downloads":
+            location.href="downloads.html";
+            break;
 
-}else{
+        case "news":
+            location.href="news.html";
+            break;
 
-section.style.display=input==""?"block":"none";
+        case "discord":
+            location.href="discord.html";
+            break;
 
-}
+        case "contact":
+            location.href="contact.html";
+            break;
 
-});
-
+        default:
+            alert("No page found.");
+    }
 }
 </script>
 
